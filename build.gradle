@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+buildscript {
+    ext {
+        assetPipelineVersion = project.assetPipelineVersion
+        thymeleafVersion = project.thymeleafVersion
+    }
+}
+
+group 'ch.itds.taglib'
+
+repositories {
+    jcenter()
+}
+
+
+dependencies {
+    compile "org.thymeleaf:thymeleaf:${thymeleafVersion}"
+    compile "com.bertramlabs.plugins:asset-pipeline-core:${assetPipelineVersion}"
+}
+
