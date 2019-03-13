@@ -1,5 +1,7 @@
 # Asset Pipeline Thymeleaf Taglib
 
+[ ![Download](https://api.bintray.com/packages/mkobel/plugins/asset-pipeline-thymeleaf-taglib/images/download.svg) ](https://bintray.com/mkobel/plugins/asset-pipeline-thymeleaf-taglib/_latestVersion)
+
 ## Usage
 
 1. Register dialect
