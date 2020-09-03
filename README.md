@@ -4,29 +4,31 @@
 
 ## Usage
 
-1. Register dialect
-    ```java
-    @Configuration
-    public class ThymeleafConfig {
-    
-        @Bean
-        public AssetDialect assetDialect() {
-            return new AssetDialect();
-        }
-    
-    }
-    ```
-
-2.  Usage
-    ```html
+```html
     <!DOCTYPE html>
     <html xmlns:asset="https://www.itds.ch/taglib/asset">
     <script asset:src="@{/assets/main.js}"></script>
     <link asset:href="@{/assets/main.css}" rel="stylesheet"/>
     <meta name="msapplication-TileImage" th:content="${#asset.path('/assets/favicons/mstile-144x144.png')}"/>
     </html>
-    ```
-    
+```
+
+### Register Dialect
+
+If auto-configuration is disabled or not available you must register the dialect as follows:
+
+```java
+@Configuration
+public class ThymeleafConfig {
+
+    @Bean
+    public AssetDialect assetDialect() {
+        return new AssetDialect();
+    }
+}
+```
+
+
 ## How it works
 
 The attribute tag processors try to lookup the file in the generated manifest file. If the file is available the url is rewritten according to the manifest file.

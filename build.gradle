@@ -21,10 +21,10 @@ repositories {
     jcenter()
 }
 
-
 dependencies {
     implementation "org.thymeleaf:thymeleaf:${thymeleafVersion}"
     implementation "com.bertramlabs.plugins:asset-pipeline-core:${assetPipelineVersion}"
+    implementation "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
 }
 
 bintray {
