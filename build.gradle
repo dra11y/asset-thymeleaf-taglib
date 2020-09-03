@@ -23,8 +23,8 @@ repositories {
 
 
 dependencies {
-    compile "org.thymeleaf:thymeleaf:${thymeleafVersion}"
-    compile "com.bertramlabs.plugins:asset-pipeline-core:${assetPipelineVersion}"
+    implementation "org.thymeleaf:thymeleaf:${thymeleafVersion}"
+    implementation "com.bertramlabs.plugins:asset-pipeline-core:${assetPipelineVersion}"
 }
 
 bintray {
