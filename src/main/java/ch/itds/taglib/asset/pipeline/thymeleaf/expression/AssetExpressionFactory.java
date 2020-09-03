@@ -1,4 +1,4 @@
-package ch.itds.taglib.asset.pipeline.thymeleaf;
+package ch.itds.taglib.asset.pipeline.thymeleaf.expression;
 
 import org.thymeleaf.context.IExpressionContext;
 import org.thymeleaf.expression.IExpressionObjectFactory;
@@ -22,7 +22,7 @@ public class AssetExpressionFactory implements IExpressionObjectFactory {
     @Override
     public Object buildObject(IExpressionContext context, String expressionObjectName) {
         if (EVALUATION_VARIABLE_NAME.equals(expressionObjectName)) {
-            return new AssetExpressionObject();
+            return new AssetExpression();
         }
         return null;
     }

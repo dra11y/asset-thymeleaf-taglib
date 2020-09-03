@@ -1,4 +1,4 @@
-package ch.itds.taglib.asset.pipeline.thymeleaf;
+package ch.itds.taglib.asset.pipeline.thymeleaf.asset;
 
 import asset.pipeline.AssetPipelineConfigHolder;
 

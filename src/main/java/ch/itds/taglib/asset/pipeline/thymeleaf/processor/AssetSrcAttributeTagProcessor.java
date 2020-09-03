@@ -1,13 +1,13 @@
-package ch.itds.taglib.asset.pipeline.thymeleaf;
+package ch.itds.taglib.asset.pipeline.thymeleaf.processor;
 
 import org.thymeleaf.templatemode.TemplateMode;
 
-public class AssetHrefAttributeTagProcessor extends AbstractAssetAttributeTagProcessor {
+public class AssetSrcAttributeTagProcessor extends AbstractAssetAttributeTagProcessor {
 
-    private static final String ATTR_NAME = "href";
+    private static final String ATTR_NAME = "src";
     private static final int PRECEDENCE = 1000;
 
-    public AssetHrefAttributeTagProcessor(final String dialectPrefix) {
+    public AssetSrcAttributeTagProcessor(final String dialectPrefix) {
         super(
                 TemplateMode.HTML, // This processor will apply only to HTML mode
                 dialectPrefix,     // Prefix to be applied to name for matching

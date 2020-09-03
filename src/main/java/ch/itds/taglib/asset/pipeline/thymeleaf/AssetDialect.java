@@ -1,5 +1,8 @@
 package ch.itds.taglib.asset.pipeline.thymeleaf;
 
+import ch.itds.taglib.asset.pipeline.thymeleaf.expression.AssetExpressionFactory;
+import ch.itds.taglib.asset.pipeline.thymeleaf.processor.AssetHrefAttributeTagProcessor;
+import ch.itds.taglib.asset.pipeline.thymeleaf.processor.AssetSrcAttributeTagProcessor;
 import org.thymeleaf.dialect.AbstractProcessorDialect;
 import org.thymeleaf.dialect.IExpressionObjectDialect;
 import org.thymeleaf.expression.IExpressionObjectFactory;

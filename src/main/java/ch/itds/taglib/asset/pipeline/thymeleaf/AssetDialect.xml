@@ -6,7 +6,7 @@
          prefix="fields"
          namespace-uri="http://www.itds.ch/taglib/assets"
          class="ch.itds.thymeleaf.fields.FieldsDialect">
-    <expression-object name="asset" class="ch.itds.taglib.asset.pipeline.thymeleaf.AssetExpressionObject"/>
-    <attribute-processor name="href" class="ch.itds.taglib.asset.pipeline.thymeleaf.AssetHrefAttributeTagProcessor"/>
-    <attribute-processor name="src" class="ch.itds.taglib.asset.pipeline.thymeleaf.AssetSrcAttributeTagProcessor"/>
+    <expression-object name="asset" class="ch.itds.taglib.asset.pipeline.thymeleaf.expression.AssetExpression"/>
+    <attribute-processor name="href" class="ch.itds.taglib.asset.pipeline.thymeleaf.processor.AssetHrefAttributeTagProcessor"/>
+    <attribute-processor name="src" class="ch.itds.taglib.asset.pipeline.thymeleaf.processor.AssetSrcAttributeTagProcessor"/>
 </dialect>

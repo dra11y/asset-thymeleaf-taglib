@@ -1,5 +1,6 @@
-package ch.itds.taglib.asset.pipeline.thymeleaf;
+package ch.itds.taglib.asset.pipeline.thymeleaf.processor;
 
+import ch.itds.taglib.asset.pipeline.thymeleaf.asset.AssetResolver;
 import org.thymeleaf.IEngineConfiguration;
 import org.thymeleaf.context.ITemplateContext;
 import org.thymeleaf.engine.AttributeName;
