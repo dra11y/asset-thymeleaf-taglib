@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialect xmlns="http://www.thymeleaf.org/extras/dialect"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.thymeleaf.org/extras/dialect
+                             http://www.thymeleaf.org/xsd/thymeleaf-extras-dialect-3.0.xsd"
+         prefix="fields"
+         namespace-uri="http://www.itds.ch/taglib/assets"
+         class="ch.itds.thymeleaf.fields.FieldsDialect">
+    <expression-object name="asset" class="ch.itds.taglib.asset.pipeline.thymeleaf.AssetExpressionObject"/>
+    <attribute-processor name="href" class="ch.itds.taglib.asset.pipeline.thymeleaf.AssetHrefAttributeTagProcessor"/>
+    <attribute-processor name="src" class="ch.itds.taglib.asset.pipeline.thymeleaf.AssetSrcAttributeTagProcessor"/>
+</dialect>
