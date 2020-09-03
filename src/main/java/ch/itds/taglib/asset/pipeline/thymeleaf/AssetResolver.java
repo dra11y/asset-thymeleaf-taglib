@@ -10,7 +10,7 @@ public class AssetResolver {
 
     public static String getAssetPath(String path) {
         String assetPath = path;
-        final Properties manifest = AssetPipelineConfigHolder.getManifest();
+        final Properties manifest = AssetPipelineConfigHolder.manifest;
 
         if (manifest != null && assetPath.startsWith(DEFAULT_ASSET_PATH_PREFIX)) {
             String file = assetPath.substring(DEFAULT_ASSET_PATH_PREFIX.length());
