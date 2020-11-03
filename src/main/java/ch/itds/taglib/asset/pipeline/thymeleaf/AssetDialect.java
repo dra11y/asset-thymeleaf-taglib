@@ -18,7 +18,7 @@ public class AssetDialect extends AbstractProcessorDialect implements IExpressio
 
     private static final String DIALECT_NAME_SPACE = "http://www.itds.ch/taglib/assets";
 
-    private final transient IExpressionObjectFactory EXPRESSION_OBJECTS_FACTORY;
+    private final IExpressionObjectFactory EXPRESSION_OBJECTS_FACTORY;
 
     public AssetDialect() {
         super(DIALECT_NAME_SPACE, "asset", StandardDialect.PROCESSOR_PRECEDENCE);
