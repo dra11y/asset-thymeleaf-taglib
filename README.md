@@ -19,8 +19,11 @@
 
 2.  Use tags
     ```html
+    <!DOCTYPE html>
+    <html xmlns:asset="https://www.itds.ch/taglib/asset">
     <script asset:src="@{/assets/main.js}"></script>
-    <link asset:href="@{/assets/main.css} " th:rel="stylesheet"/>
+    <link asset:href="@{/assets/main.css}" th:rel="stylesheet"/>
+    </html>
     ```
 
 ## How it work's
