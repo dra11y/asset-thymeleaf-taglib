@@ -10,9 +10,7 @@ public class AssetExpressionFactory implements IExpressionObjectFactory {
 
     private static final String EVALUATION_VARIABLE_NAME = "asset";
 
-    private static final Set<String> ALL_EXPRESSION_OBJECT_NAMES = Collections.unmodifiableSet(
-            Collections.singleton(EVALUATION_VARIABLE_NAME)
-    );
+    private static final Set<String> ALL_EXPRESSION_OBJECT_NAMES = Collections.singleton(EVALUATION_VARIABLE_NAME);
 
     @Override
     public Set<String> getAllExpressionObjectNames() {
