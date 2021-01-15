@@ -1,10 +1,17 @@
 apply plugin: 'java'
 apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
 
 buildscript {
     ext {
         assetPipelineVersion = project.assetPipelineVersion
         thymeleafVersion = project.thymeleafVersion
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.1'
     }
 }
 
@@ -18,5 +25,39 @@ repositories {
 dependencies {
     compile "org.thymeleaf:thymeleaf:${thymeleafVersion}"
     compile "com.bertramlabs.plugins:asset-pipeline-core:${assetPipelineVersion}"
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    publications = ['Publication']
+    pkg {
+        repo = 'plugins'
+        name = 'asset-pipeline-thymeleaf-taglib'
+        licenses = ['Apache-2.0']
+        version {
+            name = project.version
+            desc = 'initial release'
+            released  = new Date()
+            vcsTag = "v${project.version}"
+        }
+    }
+}
+
+task sourceJar(type: Jar) {
+    classifier 'sources'
+    from sourceSets.main.allJava
+}
+
+publishing {
+    publications {
+        Publication(MavenPublication) {
+            from components.java
+            artifact tasks.sourceJar
+            groupId 'ch.itds.taglib'
+            artifactId 'asset-pipeline-thymeleaf-taglib'
+            version project.version
+        }
+    }
 }
 
