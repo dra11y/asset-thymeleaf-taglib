@@ -1,6 +1,6 @@
 apply plugin: 'java'
-apply plugin: 'maven-publish'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 buildscript {
     ext {
@@ -8,17 +8,15 @@ buildscript {
         thymeleafVersion = project.thymeleafVersion
     }
     repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.1'
+        mavenCentral()
     }
 }
 
 group 'ch.itds.taglib'
+version project.version
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -27,36 +25,65 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
 }
 
-bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
-    publications = ['Publication']
-    pkg {
-        repo = 'plugins'
-        name = 'asset-pipeline-thymeleaf-taglib'
-        licenses = ['Apache-2.0']
-        version {
-            name = project.version
-            desc = 'initial release'
-            released  = new Date()
-            vcsTag = "v${project.version}"
-        }
-    }
+task javadocJar(type: Jar) {
+    classifier 'javadoc'
+    from javadoc
 }
 
-task sourceJar(type: Jar) {
+task sourcesJar(type: Jar) {
     classifier 'sources'
-    from sourceSets.main.allJava
+    from sourceSets.main.allSource
 }
 
-publishing {
-    publications {
-        Publication(MavenPublication) {
-            from components.java
-            artifact tasks.sourceJar
-            groupId 'ch.itds.taglib'
-            artifactId 'asset-pipeline-thymeleaf-taglib'
-            version project.version
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    useGpgCmd()
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'asset-pipeline-thymeleaf-taglib'
+                description 'Thymeleaf taglib to simplify the use of the asset-pipeline'
+                packaging 'jar'
+                url 'https://github.com/itds-ch/asset-pipeline-thymeleaf-taglib'
+
+                scm {
+                    connection 'scm:git:https://github.com/itds-ch/asset-pipeline-thymeleaf-taglib.git'
+                    developerConnection 'scm:git:https://github.com/itds-ch/asset-pipeline-thymeleaf-taglib.git'
+                    url 'https://github.com/itds-ch/asset-pipeline-thymeleaf-taglib'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'm.kobel'
+                        name 'Moritz Kobel'
+                        email 'moritz.kobel@itds.ch'
+                    }
+                }
+            }
         }
     }
 }
