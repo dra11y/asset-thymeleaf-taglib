@@ -1,6 +1,6 @@
 # Asset Pipeline Thymeleaf Taglib
 
-![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/ch.itds.taglib/asset-pipeline-thymeleaf-taglib?server=https%3A%2F%2Fs01.oss.sonatype.org&style=flat)
+[![Maven Central](https://img.shields.io/maven-central/v/ch.itds.taglib/asset-pipeline-thymeleaf-taglib)](https://search.maven.org/remote_content?g=ch.itds.taglib&a=asset-pipeline-thymeleaf-taglib&v=LATEST)
 
 ## Usage
 
