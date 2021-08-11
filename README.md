@@ -4,13 +4,21 @@
 
 ## Usage
 
+### Add dependency
+
+```gradle
+compile "ch.itds.taglib:asset-pipeline-thymeleaf-taglib:1.1.1"
+```
+
+### Usage in HTML/thymeleaf
+
 ```html
-    <!DOCTYPE html>
-    <html xmlns:asset="https://www.itds.ch/taglib/asset">
-    <script asset:src="@{/assets/main.js}"></script>
-    <link asset:href="@{/assets/main.css}" rel="stylesheet"/>
-    <meta name="msapplication-TileImage" th:content="${#asset.path('/assets/favicons/mstile-144x144.png')}"/>
-    </html>
+<!DOCTYPE html>
+<html xmlns:asset="https://www.itds.ch/taglib/asset">
+<script asset:src="@{/assets/main.js}"></script>
+<link asset:href="@{/assets/main.css}" rel="stylesheet"/>
+<meta name="msapplication-TileImage" th:content="${#asset.path('/assets/favicons/mstile-144x144.png')}"/>
+</html>
 ```
 
 ### Register Dialect
