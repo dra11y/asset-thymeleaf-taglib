@@ -1,10 +1,9 @@
 package com.dra11y.assetThymeleafTaglib.asset
 
-object AssetResolver {
-    @JvmStatic
-    fun getAssetPath(path: String): String {
-        var assetPath = path
-        println("assetPath = $assetPath")
-        return assetPath
-    }
+import com.dra11y.assetThymeleafTaglib.ManifestLoader
+import org.springframework.stereotype.Component
+
+@Component
+class AssetResolver(val manifestLoader: ManifestLoader) {
+    fun getAssetPath(path: String): String = manifestLoader.manifest[path] ?: path
 }

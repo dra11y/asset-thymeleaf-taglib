@@ -1,6 +1,7 @@
 package com.dra11y.assetThymeleafTaglib.processor
 
-import com.dra11y.assetThymeleafTaglib.asset.AssetResolver.getAssetPath
+import com.dra11y.assetThymeleafTaglib.asset.AssetResolver
+import org.springframework.stereotype.Component
 import org.thymeleaf.context.ITemplateContext
 import org.thymeleaf.engine.AttributeName
 import org.thymeleaf.model.IProcessableElementTag
@@ -9,6 +10,7 @@ import org.thymeleaf.processor.element.IElementTagStructureHandler
 import org.thymeleaf.standard.expression.StandardExpressions
 import org.thymeleaf.templatemode.TemplateMode
 
+@Component
 abstract class AbstractAssetAttributeTagProcessor protected constructor(
     templateMode: TemplateMode?,
     dialectPrefix: String?,
@@ -17,7 +19,8 @@ abstract class AbstractAssetAttributeTagProcessor protected constructor(
     attributeName: String?,
     prefixAttributeName: Boolean,
     precedence: Int,
-    removeAttribute: Boolean
+    removeAttribute: Boolean,
+    private val assetResolver: AssetResolver
 ) : AbstractAttributeTagProcessor(
     templateMode,
     dialectPrefix,
@@ -39,7 +42,8 @@ abstract class AbstractAssetAttributeTagProcessor protected constructor(
         val parser = StandardExpressions.getExpressionParser(configuration)
         val expression = parser.parseExpression(context, attributeValue)
         val directSource = expression.execute(context) as String
-        val finalSource = getAssetPath(directSource)
+        val finalSource = assetResolver.getAssetPath(directSource)
+        println("doProcess finalSource = $finalSource")
         structureHandler.setAttribute(attributeName.attributeName, finalSource)
     }
 }

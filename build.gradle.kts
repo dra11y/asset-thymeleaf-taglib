@@ -8,6 +8,7 @@ plugins {
 
 val springBootVersion by extra("2.7.1")
 val thymeleafVersion by extra("3.0.15.RELEASE")
+val jacksonVersion by extra("2.13.3")
 
 group = "com.dra11y"
 version = "1.2.0-SNAPSHOT"
@@ -20,6 +21,7 @@ repositories {
 dependencies {
     implementation("org.thymeleaf:thymeleaf:$thymeleafVersion")
     implementation("org.springframework.boot:spring-boot-autoconfigure:$springBootVersion")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
 }
 
 publishing {
