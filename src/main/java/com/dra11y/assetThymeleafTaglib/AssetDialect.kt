@@ -18,7 +18,6 @@ open class AssetDialect(private val assetExpressionFactory: AssetExpressionFacto
     IExpressionObjectDialect {
 
     override fun getProcessors(dialectPrefix: String): Set<IProcessor> {
-        println("get processors")
         val processors: MutableSet<IProcessor> = HashSet()
         processors.add(AssetHrefAttributeTagProcessor(dialectPrefix, assetResolver))
         processors.add(AssetSrcAttributeTagProcessor(dialectPrefix, assetResolver))

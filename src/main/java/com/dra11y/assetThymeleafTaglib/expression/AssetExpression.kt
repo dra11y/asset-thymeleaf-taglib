@@ -7,8 +7,5 @@ import org.springframework.stereotype.Component
 @Component
 @Import(AssetResolver::class)
 class AssetExpression(private val assetResolver: AssetResolver) {
-    fun path(path: String?): String {
-        println("path: $path")
-        return assetResolver.getAssetPath(path!!)
-    }
+    fun path(path: String?): String = assetResolver.getAssetPath(path!!)
 }

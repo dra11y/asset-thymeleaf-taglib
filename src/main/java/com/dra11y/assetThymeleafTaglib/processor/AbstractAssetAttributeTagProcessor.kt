@@ -43,7 +43,6 @@ abstract class AbstractAssetAttributeTagProcessor protected constructor(
         val expression = parser.parseExpression(context, attributeValue)
         val directSource = expression.execute(context) as String
         val finalSource = assetResolver.getAssetPath(directSource)
-        println("doProcess finalSource = $finalSource")
         structureHandler.setAttribute(attributeName.attributeName, finalSource)
     }
 }

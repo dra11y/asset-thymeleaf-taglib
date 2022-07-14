@@ -16,10 +16,6 @@ class AssetSrcAttributeTagProcessor(dialectPrefix: String?, assetResolver: Asset
     true,
     assetResolver
 ) {
-    init {
-        println("init AssetSrcAttributeTagProcessor")
-    }
-
     companion object {
         private const val ATTR_NAME = "src"
         private const val PRECEDENCE = 1000
