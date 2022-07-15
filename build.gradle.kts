@@ -11,7 +11,7 @@ val thymeleafVersion by extra("3.0.15.RELEASE")
 val jacksonVersion by extra("2.13.3")
 
 group = "com.dra11y"
-version = "1.2.0-SNAPSHOT"
+version = "1.2.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_13
 
 repositories {

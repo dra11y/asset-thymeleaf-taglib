@@ -8,5 +8,5 @@ import org.springframework.core.io.ClassPathResource
 open class ThymeleafAssetDialectConfig {
     @Bean
     open fun getManifestLoader(): ManifestLoader =
-        ManifestLoader(ClassPathResource("manifest.json"))
+        ManifestLoader(ClassPathResource("static/manifest.json"))
 }

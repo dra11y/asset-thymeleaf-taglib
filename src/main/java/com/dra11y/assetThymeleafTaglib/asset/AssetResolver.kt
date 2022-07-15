@@ -5,5 +5,5 @@ import org.springframework.stereotype.Component
 
 @Component
 class AssetResolver(val manifestLoader: ManifestLoader) {
-    fun getAssetPath(path: String): String = manifestLoader.manifest[path] ?: path
+    fun getAssetPath(path: String): String = manifestLoader.getManifest()[path] ?: path
 }
